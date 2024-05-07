@@ -1,0 +1,99 @@
+class Book:
+    def init(self, title, author, genre, isbn):
+        self.title = title
+        self.author = author
+        self.genre = genre
+        self.isbn = isbn
+
+class Library:
+    def init(self):
+        self.books = []
+
+    def add_book(self, book):
+        self.books.append(book)
+
+    def search_by_title(self, title):
+        for book in self.books:
+            if book.title.lower() == title.lower():
+                return book
+        return None
+
+    def search_by_author(self, author):
+        for book in self.books:
+            if book.author.lower() == author.lower():
+                return book
+        return None
+
+    def search_by_genre(self, genre):
+        found_books = []
+        for book in self.books:
+            if book.genre.lower() == genre.lower():
+                found_books.append(book)
+        return found_books
+
+    def search_by_isbn(self, isbn):
+        for book in self.books:
+            if book.isbn == isbn:
+                return book
+        return None
+
+# Example usage:
+library = Library()
+
+# Adding books
+book1 = Book("Call Me by Your Name", "André Aciman", "Romance", "978-0312426781")
+book2 = Book("Red, White & Royal Blue", "Casey McQuiston", "Romance", "978-1250316776")
+book3 = Book("Captive Prince", "C.S. Pacat", "Fantasy", "978-0987552285")
+book4 = Book("Sotus: The Series", "Bittersweet", 2016, "978-616-543-711-8")
+Book5 = Book("TharnType: The Series", "MAME", 2019,978-616-543-731-2")
+Book6 = Book("2Toghther: The Series", "JittiRain", 2019, "978-616-543731-6")
+
+library.add_book(book1)
+library.add_book(book2)
+library.add_book(book3)
+library.add_book(book4)
+library.add_book(book5)
+library.add_book(book6)
+
+# Searching for books
+search_title = "Call Me by Your Name"
+result_title = library.search_by_title(search_title)
+if result_title:
+    print(f"Book found by title '{search_title}': {result_title.title} by {result_title.author}")
+else:
+    print(f"No book found with title '{search_title}'")
+search_author = "Casey McQuiston"
+result_author = library.search_by_author(search_author)
+if result_author:
+    print(f"Book found by author '{search_author}': {result_author.title} by {result_author.author}")
+else:
+    print(f"No book found by author '{search_author}'")
+
+search_genre = "Romance"
+result_genre = library.search_by_genre(search_genre)
+if result_genre:
+    print(f"Books found by genre '{search_genre}':")
+    for book in result_genre:
+        print(f"{book.title} by {book.author}")
+else:
+    print(f"No books found with genre '{search_genre}'")
+search_title = "Sotus: The Series"
+result_title = library.search_by_title(search_title)
+if result_title:
+   print(f"Book found with title '{search_title}': {rtesult_title.title} by {result_title.author})")
+else:
+print(f"No book found with title '{search_title}'")
+search_title = "2Together: The Series"
+result_title= library.search-by_title{search_title}
+if result_title:
+   print(f"Book found with title '{search_title}'"): {result_title.title} by {result_title.author})")
+else:
+print(f"No book found with title '{search_title}'")
+
+
+search_isbn = "978-0987552285"
+result_isbn = library.search_by_isbn(search_isbn)
+if result_isbn:
+    print(f"Book found by ISBN '{search_isbn}': {result_isbn.title} by {result_isbn.author}")
+else:
+    print(f"No book found with ISBN '{search_isbn}'")
